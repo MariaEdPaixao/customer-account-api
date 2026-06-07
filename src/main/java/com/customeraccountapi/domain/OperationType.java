@@ -3,6 +3,8 @@ package com.customeraccountapi.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "operation_types")
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OperationType {
     @Id
     @Column(name = "operation_type_id", nullable = false, unique = true)

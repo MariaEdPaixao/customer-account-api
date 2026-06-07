@@ -1,6 +1,7 @@
 package com.customeraccountapi.repositories;
 
 import com.customeraccountapi.domain.Account;
+import com.customeraccountapi.exceptions.ResourceNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
