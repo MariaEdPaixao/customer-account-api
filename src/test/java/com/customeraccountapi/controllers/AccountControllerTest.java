@@ -1,6 +1,5 @@
 package com.customeraccountapi.controllers;
 
-import com.customeraccountapi.domain.Account;
 import com.customeraccountapi.dto.AccountResponseDTO;
 import com.customeraccountapi.exceptions.ConflictException;
 import com.customeraccountapi.exceptions.ResourceNotFoundException;

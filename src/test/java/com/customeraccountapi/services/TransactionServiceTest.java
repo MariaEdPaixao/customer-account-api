@@ -35,7 +35,7 @@ class TransactionServiceTest {
     private OperationTypeRepository operationTypeRepository;
 
     @InjectMocks
-    private TransactionService transactionService;
+    private TransactionServiceImpl transactionService;
 
     @Test
     @DisplayName("Should create transaction successfully when account and operation type exist")

@@ -1,6 +1,5 @@
 package com.customeraccountapi.controllers;
 
-import com.customeraccountapi.domain.Account;
 import com.customeraccountapi.dto.AccountCreateDTO;
 import com.customeraccountapi.dto.AccountResponseDTO;
 import com.customeraccountapi.dto.ErrorResponseDTO;

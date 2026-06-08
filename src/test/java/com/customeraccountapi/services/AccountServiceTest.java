@@ -29,7 +29,7 @@ class AccountServiceTest {
     private AccountRepository accountRepository;
 
     @InjectMocks
-    private AccountService accountService;
+    private AccountServiceImpl accountService;
 
     @Test
     @DisplayName("Should create account successfully when document does not exist")
