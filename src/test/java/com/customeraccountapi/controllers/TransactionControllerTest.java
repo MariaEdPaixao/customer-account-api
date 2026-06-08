@@ -31,7 +31,7 @@ class TransactionControllerTest {
     private TransactionService transactionService;
 
     @Test
-    @DisplayName("Should create transaction successfully and return status 201")
+    @DisplayName("POST /transactions - should create transaction successfully and return status 201")
     void shouldCreateTransactionSuccessfully() throws Exception {
         TransactionResponseDTO response = new TransactionResponseDTO(1L,1L,4L, new BigDecimal("100.00"));
 
@@ -54,7 +54,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 400 when account_id is not provided")
+    @DisplayName("POST /transactions - should return 400 when account_id is not provided")
     void shouldReturnBadRequestWhenAccountIdIsNull() throws Exception {
         mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -71,7 +71,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 400 when amount is null")
+    @DisplayName("POST /transactions - should return 400 when amount is null")
     void shouldReturnBadRequestWhenAmountIsNull() throws Exception {
         mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -87,7 +87,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 400 when amount is negative")
+    @DisplayName("POST /transactions - should return 400 when amount is negative")
     void shouldReturnBadRequestWhenAmountIsNegative() throws Exception {
         mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -104,7 +104,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 400 when amount has more than 2 decimal places")
+    @DisplayName("POST /transactions - should return 400 when amount has more than 2 decimal places")
     void shouldReturnBadRequestWhenAmountHasMoreThanTwoDecimalPlaces() throws Exception {
         mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -121,7 +121,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 400 when operation_type_id is not provided")
+    @DisplayName("POST /transactions - should return 400 when operation_type_id is not provided")
     void shouldReturnBadRequestWhenOperationTypeIsNull() throws Exception {
         mockMvc.perform(post("/transactions")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -137,7 +137,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 404 when account does not exist")
+    @DisplayName("POST /transactions - should return 404 when account does not exist")
     void shouldReturnNotFoundWhenAccountDoesNotExist() throws Exception {
         when(transactionService.create(any())).thenThrow(new ResourceNotFoundException("Account not found"));
 
@@ -154,7 +154,7 @@ class TransactionControllerTest {
     }
 
     @Test
-    @DisplayName("Should return 404 when operation type does not exist")
+    @DisplayName("POST /transactions - should return 404 when operation type does not exist")
     void shouldReturnNotFoundWhenOperationTypeDoesNotExist() throws Exception {
         when(transactionService.create(any())).thenThrow(new ResourceNotFoundException("Operation type not found"));
 

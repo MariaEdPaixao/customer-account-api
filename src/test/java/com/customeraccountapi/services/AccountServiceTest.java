@@ -85,14 +85,13 @@ class AccountServiceTest {
                 .documentNumber("12345678900")
                 .build();
 
-        when(accountRepository.findById(1L))
-                .thenReturn(Optional.of(account));
+        when(accountRepository.findById(1L)).thenReturn(Optional.of(account));
 
-        Account result = accountService.findById(1L);
+        AccountResponseDTO result = accountService.findById(1L);
 
         assertNotNull(result);
-        assertEquals(1L, result.getAccountId());
-        assertEquals("12345678900", result.getDocumentNumber());
+        assertEquals(1L, result.accountId());
+        assertEquals("12345678900", result.documentNumber());
     }
 
     @Test

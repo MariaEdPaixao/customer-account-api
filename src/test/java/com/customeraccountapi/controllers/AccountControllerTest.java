@@ -86,18 +86,16 @@ class AccountControllerTest {
     @Test
     @DisplayName("GET /accounts/{id} - should return account when id exists")
     void shouldReturnAccountById() throws Exception {
-        Account account = Account.builder()
-                .accountId(1L)
-                .documentNumber("12345678900")
-                .build();
+        AccountResponseDTO response =
+                new AccountResponseDTO(1L, "12345678900");
 
         when(accountService.findById(1L))
-                .thenReturn(account);
+                .thenReturn(response);
 
         mockMvc.perform(get("/accounts/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.accountId").value(1L))
-                .andExpect(jsonPath("$.documentNumber").value("12345678900"));
+                .andExpect(jsonPath("$.account_id").value(1L))
+                .andExpect(jsonPath("$.document_number").value("12345678900"));
     }
 
     @Test

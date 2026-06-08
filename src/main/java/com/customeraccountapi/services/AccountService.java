@@ -32,11 +32,13 @@
             return toResponseDTO(savedAccount);
         }
 
-        public Account findById(Long accountId){
-            return accountRepository.findById(accountId)
+        public AccountResponseDTO  findById(Long accountId){
+            Account account = accountRepository.findById(accountId)
                     .orElseThrow(() ->
                             new ResourceNotFoundException(
                                     "Account not found"));
+
+            return toResponseDTO(account);
         }
 
         private AccountResponseDTO toResponseDTO(Account account) {
